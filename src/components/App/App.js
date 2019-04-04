@@ -4,19 +4,19 @@ import Person from "../Person/Person";
 
 class App extends Component {
   state = {
-    person: [
+    persons: [
       { name: "Dipto", age: Math.floor(Math.random() * 30) },
       { name: "John", age: Math.floor(Math.random() * 30) },
       { name: "Jane", age: Math.floor(Math.random() * 30) },
       { name: "Maze", age: Math.floor(Math.random() * 30) },
       { name: "Dake", age: Math.floor(Math.random() * 30) }
     ],
-    showPerson: false
+    showPersons: false
   };
 
   switchNameHandler = newName => {
     this.setState({
-      person: [
+      persons: [
         { name: newName, age: 25 },
         { name: "Dcosta", age: 24 },
         { name: "Juni", age: 20 },
@@ -28,7 +28,7 @@ class App extends Component {
 
   changedNameHandler = event => {
     this.setState({
-      person: [
+      persons: [
         { name: "Dipto", age: 25 },
         { name: "Dcosta", age: 24 },
         { name: "Juni", age: 20 },
@@ -39,7 +39,7 @@ class App extends Component {
   };
 
   togglePersonsHandler = () => {
-    this.setState({ showPerson: !this.state.showPerson });
+    this.setState({ showPersons: !this.state.showPersons });
   };
 
   render() {
@@ -55,31 +55,30 @@ class App extends Component {
 
     let persons = null;
 
-    if (this.state.showPerson) {
+    if (this.state.showPersons) {
       persons = (
         <div>
-          <Person
-            name={this.state.person[0].name}
-            age={this.state.person[0].age}
-          />
-          <Person
-            name={this.state.person[1].name}
-            age={this.state.person[1].age}
-          />
-          <Person
-            name={this.state.person[2].name}
-            age={this.state.person[2].age}
-            click={this.switchNameHandler.bind(this, "Jake")}
-          />
-          <Person
-            name={this.state.person[3].name}
-            age={this.state.person[3].age}
-            changed={this.changedNameHandler}
-          />
-          <Person
-            name={this.state.person[4].name}
-            age={this.state.person[4].age}
-          />
+          {this.state.persons.map((person, index) => {
+            if (index === 2) {
+              return (
+                <Person
+                  click={this.switchNameHandler.bind(this, "Mark")}
+                  name={person.name}
+                  age={person.age}
+                />
+              );
+            } else if (index === 3) {
+              return (
+                <Person
+                  changed={this.changedNameHandler}
+                  name={person.name}
+                  age={person.age}
+                />
+              );
+            } else {
+              return <Person name={person.name} age={person.age} />;
+            }
+          })}
         </div>
       );
     }
