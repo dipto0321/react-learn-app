@@ -12,11 +12,25 @@ class App extends Component {
       { name: "Dake", age: Math.floor(Math.random() * 30) }
     ]
   };
+
+  switchNameHandler = () => {
+    this.setState({
+      person: [
+        { name: "Drake", age: 25 },
+        { name: "Dcosta", age: 24 },
+        { name: "Juni", age: 20 },
+        { name: "Janga", age: 23 },
+        { name: "Dake", age: 18 }
+      ]
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <h1>Hi, this is a react app!</h1>
         <p>This is really working</p>
+        <button onClick={this.switchNameHandler}>Switch name!</button>
         <Person
           name={this.state.person[0].name}
           age={this.state.person[0].age}
