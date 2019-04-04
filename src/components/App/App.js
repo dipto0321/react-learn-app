@@ -52,6 +52,38 @@ class App extends Component {
       borderRadius: 5,
       color: "#fff"
     };
+
+    let persons = null;
+
+    if (this.state.showPerson) {
+      persons = (
+        <div>
+          <Person
+            name={this.state.person[0].name}
+            age={this.state.person[0].age}
+          />
+          <Person
+            name={this.state.person[1].name}
+            age={this.state.person[1].age}
+          />
+          <Person
+            name={this.state.person[2].name}
+            age={this.state.person[2].age}
+            click={this.switchNameHandler.bind(this, "Jake")}
+          />
+          <Person
+            name={this.state.person[3].name}
+            age={this.state.person[3].age}
+            changed={this.changedNameHandler}
+          />
+          <Person
+            name={this.state.person[4].name}
+            age={this.state.person[4].age}
+          />
+        </div>
+      );
+    }
+
     return (
       <div className="App">
         <h1>Hi, this is a react app!</h1>
@@ -59,32 +91,7 @@ class App extends Component {
         <button style={styleBtn} onClick={this.togglePersonsHandler}>
           Show/Hide Persons
         </button>
-        {this.state.showPerson ? (
-          <div>
-            <Person
-              name={this.state.person[0].name}
-              age={this.state.person[0].age}
-            />
-            <Person
-              name={this.state.person[1].name}
-              age={this.state.person[1].age}
-            />
-            <Person
-              name={this.state.person[2].name}
-              age={this.state.person[2].age}
-              click={this.switchNameHandler.bind(this, "Jake")}
-            />
-            <Person
-              name={this.state.person[3].name}
-              age={this.state.person[3].age}
-              changed={this.changedNameHandler}
-            />
-            <Person
-              name={this.state.person[4].name}
-              age={this.state.person[4].age}
-            />
-          </div>
-        ) : null}
+        {persons}
       </div>
     );
   }
