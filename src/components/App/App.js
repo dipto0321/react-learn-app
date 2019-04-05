@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import Person from "../Person/Person";
 
 class App extends Component {
@@ -33,17 +33,8 @@ class App extends Component {
   };
 
   render() {
-    const styleBtn = {
-      backgroundColor: "#4a69bd",
-      font: "inherit",
-      border: "1px solid #6a89cc",
-      padding: 10,
-      cursor: "pointer",
-      borderRadius: 5,
-      color: "#fff"
-    };
-
     let persons = null;
+    let btnClass = "";
 
     if (this.state.showPersons) {
       persons = (
@@ -63,15 +54,14 @@ class App extends Component {
           ))}
         </div>
       );
-      styleBtn.backgroundColor = "#fff";
-      styleBtn.color = "#000";
+      btnClass = styles.Show;
     }
 
     return (
-      <div className="App">
+      <div className={styles.App}>
         <h1>Hi, this is a react app!</h1>
         <p>This is really working</p>
-        <button style={styleBtn} onClick={this.togglePersonsHandler}>
+        <button className={btnClass} onClick={this.togglePersonsHandler}>
           Show/Hide Persons
         </button>
         {persons}
