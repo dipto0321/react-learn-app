@@ -1,0 +1,20 @@
+.Cockpit button {
+  background-color: #4a69bd;
+  font: inherit;
+  border: 1px solid #6a89cc;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+}
+.Cockpit button:hover {
+  background-color: #fff;
+  color: #4a69bd;
+}
+.Cockpit button.Show {
+  background-color: #0a3d62;
+}
+.Cockpit button.Show:hover {
+  background-color: #fff;
+  color: #0a3d62;
+}
