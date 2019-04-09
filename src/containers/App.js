@@ -2,16 +2,11 @@ import React, { Component } from "react";
 import styles from "./App.module.css";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
+import datas from "../data/data";
 
 class App extends Component {
   state = {
-    persons: [
-      { name: "Dipto", age: Math.floor(Math.random() * 30) },
-      { name: "John", age: Math.floor(Math.random() * 30) },
-      { name: "Jane", age: Math.floor(Math.random() * 30) },
-      { name: "Maze", age: Math.floor(Math.random() * 30) },
-      { name: "Dake", age: Math.floor(Math.random() * 30) }
-    ],
+    persons: datas.persons,
     showPersons: false
   };
 
