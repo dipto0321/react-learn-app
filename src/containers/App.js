@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import styles from "./App.module.css";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
-import datas from "../data/data";
+import persons from "../data/persons.json";
 
 class App extends Component {
   state = {
-    persons: datas.persons,
+    persons: persons,
     showPersons: false
   };
 
